@@ -1,14 +1,19 @@
-﻿<Window x:Class="ViScheduler.NotifyWindow        "
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ViScheduler.NotifyWindow        "
         Title="ПОМНИ!" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="394*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Name="InfoBlock" 
-                   Text="TextBlock" VerticalAlignment="Stretch" TextAlignment="Center"
-                   TextWrapping="Wrap" FontSize="64" />
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" x:Name="InfoBlock" Text="TextBlock" VerticalAlignment="Stretch" TextAlignment="Center" FontStretch="Normal" FontStyle="Normal"
+                       TextWrapping="Wrap" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
     </Grid>
 </Window>
 

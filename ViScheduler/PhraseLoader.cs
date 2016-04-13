@@ -9,6 +9,7 @@ namespace ViScheduler
     public interface IPhraseLoader
     {
         string GetPhrase();
+        string GetPhrase(string id);
         Dictionary<string,string> GetAllPhrases();
         void DeletePhrase(string id);
         void AddPhrase(string phrase);
@@ -44,6 +45,18 @@ namespace ViScheduler
             var rand = new Random();
             var ind = rand.Next(cnt);
             var elem = _elements[ind];
+            return elem.Value;
+        }
+
+        public string GetPhrase(string id)
+        {
+            var elem = _elements.FirstOrDefault(r => r.Attribute("id").ToString().Equals(id));
+            foreach (var element in _elements)
+            {
+                var attrs = element.Attributes().ToArray();
+                var attrId = element.Attribute("id").ToString();
+            }
+            if (elem == null) return string.Empty;
             return elem.Value;
         }
 

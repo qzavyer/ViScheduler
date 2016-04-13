@@ -25,7 +25,7 @@ namespace ViScheduler
         {
             InitializeComponent();
         }
-
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _showCounter = 0;
@@ -35,6 +35,15 @@ namespace ViScheduler
             dispatcherTimer.Start();
             IPhraseLoader loader = new PhraseLoader(@"phrases.xml");
             InfoBlock.Text = loader.GetPhrase();
+            if(string.IsNullOrEmpty(InfoBlock.Text)) return;
+            while (!InfoBlock.IsTextTrimmed())
+            {
+                InfoBlock.FontSize++;
+            }
+            while (InfoBlock.IsTextTrimmed())
+            {
+                InfoBlock.FontSize--;
+            }
         }
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
